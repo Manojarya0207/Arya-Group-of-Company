@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arya Group of Company — Building the Intelligent, Sustainable Future</title>
+  <meta name="description" content="Arya Group of Company — Tech, Cloud & Sustainable Infrastructure. AryaGreen Cloud, AryaAI Labs, AryaEdge Systems." />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --arya-blue: #0078FF;
+      --emerald-green: #00C97E;
+      --graphite: #1A1A1A;
+      --white: #FFFFFF;
+      --silver: #C0C0C0;
+
+      --bg: var(--white);
+      --text: var(--graphite);
+      --muted: #6b6b6b;
+      --glass: rgba(255,255,255,0.06);
+      --card-radius: 14px;
+    }
+
+    /* Dark theme variables (applies when .dark on body) */
+    body.dark{ --bg: #071212; --text: #E6F7F1; --muted:#9fbfb2; --glass: rgba(255,255,255,0.04);} 
+
+    *{box-sizing:border-box}
+    html,body{height:100%;}
+    body{
+      margin:0; font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, var(--bg), #f5f7f8);
+      color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    .container{max-width:1100px;margin:0 auto;padding:28px;}
+
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo-wrap{width:68px;height:68px;display:inline-flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--graphite),#0f3b3b);border-radius:12px;padding:6px}
+
+    /* Inline logo will have its own colors */
+    .wordmark{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--text);letter-spacing:0.6px}
+    .tagline{font-size:12px;color:var(--muted);margin-top:4px}
+
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:500}
+    .cta{background:linear-gradient(90deg,var(--arya-blue),var(--emerald-green));color:var(--white);padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:40px 0}
+    .hero h1{font-family:'Montserrat',sans-serif;font-size:40px;line-height:1.02;margin:0}
+    .hero p{color:var(--muted);margin-top:14px;max-width:58ch}
+
+    .hero-visual{display:flex;align-items:center;justify-content:center}
+    .device{width:360px;height:260px;border-radius:18px;background:linear-gradient(180deg,rgba(0,0,0,0.05),rgba(0,0,0,0.02));display:flex;align-items:center;justify-content:center;box-shadow:0 6px 30px rgba(12,45,32,0.18)}
+
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+    .card{background:var(--white);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(12,45,32,0.07)}
+    .card h3{margin:0;font-family:'Montserrat',sans-serif}
+    .card p{color:var(--muted);font-size:14px;margin-top:8px}
+
+    /* Sections */
+    section{padding:48px 0;border-top:1px solid rgba(0,0,0,0.02)}
+
+    /* Grid about */
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+    /* Footer */
+    footer{padding:28px 0;color:var(--muted);font-size:14px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .cards{grid-template-columns:repeat(1,1fr)}
+      .split{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* Simple button */
+    .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);padding:10px 12px;border-radius:12px}
+
+    /* Accent components */
+    .accent{background:linear-gradient(90deg,var(--arya-blue),var(--emerald-green));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    /* Simple small logo SVG styling */
+    .svg-logo{width:56px;height:56px}
+
+    /* Contact form */
+    .contact-form{display:grid;gap:12px}
+    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);font-family:inherit}
+    textarea{min-height:120px}
+
+    .topbar{display:flex;align-items:center;gap:10px}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo-wrap">
+          <!-- Arya Group abstract A logo (vector) -->
+          <svg class="svg-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Arya Group Logo">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#00C97E"/>
+                <stop offset="1" stop-color="#0078FF"/>
+              </linearGradient>
+            </defs>
+            <g fill="none" fill-rule="evenodd">
+              <path d="M20 80 L40 20 L60 20 L80 80 Z" fill="#071827" opacity="0.05"></path>
+              <path d="M22 78 L42 22 L60 22 L78 78 L22 78 Z" fill="url(#g1)" opacity="0.98"></path>
+              <path d="M48 40 L58 48" stroke="#08333D" stroke-width="3" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="wordmark">ARYA GROUP</div>
+          <div class="tagline">Building the Intelligent, Sustainable Future</div>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#sustainability">Sustainability</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <button id="themeToggle" class="btn-ghost" aria-label="Toggle theme">Toggle Theme</button>
+        <a class="cta" href="#contact">Get in touch</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <h1><span class="accent">Arya Group</span> — Enterprise for Cloud, AI & Sustainable Infrastructure</h1>
+          <p>We build carbon-neutral cloud infrastructure, cutting-edge AI systems, and resilient edge platforms. Our divisions—AryaGreen Cloud, AryaAI Labs, AryaEdge Systems—work together to deliver scalable, sustainable technology for the modern world.</p>
+
+          <div class="cards" style="margin-top:20px">
+            <div class="card">
+              <h3>AryaGreen Cloud</h3>
+              <p>AI-powered, zero-carbon data centers with renewable energy and smart energy orchestration.</p>
+            </div>
+            <div class="card">
+              <h3>AryaAI Labs</h3>
+              <p>Advanced research and production-ready AI models for industry, healthcare, and climate tech.</p>
+            </div>
+            <div class="card">
+              <h3>AryaEdge Systems</h3>
+              <p>Edge computing hardware and software to power low-latency applications and IoT networks.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="hero-visual">
+          <!-- AryaGreen Cloud emblem as an inline SVG on a transparent card -->
+          <div class="device" aria-hidden="true">
+            <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AryaGreen Cloud emblem">
+              <defs>
+                <linearGradient id="b1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#19C6FF" />
+                  <stop offset="1" stop-color="#0078FF" />
+                </linearGradient>
+                <linearGradient id="g2" x1="0" x2="1">
+                  <stop offset="0" stop-color="#00E28A" />
+                  <stop offset="1" stop-color="#00C97E" />
+                </linearGradient>
+              </defs>
+
+              <!-- cloud -->
+              <g transform="translate(20,20)">
+                <path d="M60 40c-18 0-24 12-24 12s-10-2-18 6c-8 8-6 22 8 30 14 8 36 6 48-2 12 8 34 10 48 2 14-8 16-22 8-30-8-8-18-6-18-6s-6-12-24-12c-14 0-20 8-24 8s-10-8-24-8z" fill="url(#b1)" opacity="0.95"></path>
+
+                <!-- leaf with circuits -->
+                <g transform="translate(110,10)">
+                  <path d="M0 40c0-22 24-40 40-40 16 0 32 18 32 40 0 22-14 44-32 44S0 62 0 40z" fill="url(#g2)"/>
+                  <path d="M8 48c8-2 24-16 36-22" stroke="#073B33" stroke-width="3" stroke-linecap="round" fill="none"/>
+                  <circle cx="20" cy="18" r="5" fill="#073B33"/>
+                  <circle cx="34" cy="28" r="5" fill="#073B33"/>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container">
+          <h2 style="font-family:'Montserrat',sans-serif">About Arya Group</h2>
+          <div class="split" style="margin-top:16px">
+            <div>
+              <p>Founded with a mission to marry sustainability and intelligence, Arya Group builds systems that reduce environmental impact while increasing global access to high-performance compute and AI. Our core values: <strong>Innovation</strong>, <strong>Sustainability</strong>, and <strong>Trust</strong>.</p>
+
+              <ul style="color:var(--muted);margin-top:12px">
+                <li>Enterprise-grade cloud platforms with carbon-negative operations.</li>
+                <li>AI research for healthcare, climate modeling, and automation.</li>
+                <li>Edge devices and networking for resilient IoT ecosystems.</li>
+              </ul>
+            </div>
+            <div>
+              <h3 style="font-family:'Montserrat',sans-serif">Why choose Arya?</h3>
+              <p style="color:var(--muted)">We design infrastructure to be future proof — from post-quantum security to hydrogen backup power. Our solutions deliver measurable sustainability and strong ROI.</p>
+
+              <div style="display:flex;gap:10px;margin-top:12px">
+                <div style="background:linear-gradient(90deg,var(--arya-blue),var(--emerald-green));padding:10px;border-radius:10px;color:#fff;font-weight:600">Zero Carbon</div>
+                <div style="background:var(--silver);padding:10px;border-radius:10px;color:#111">Enterprise Ready</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container">
+          <h2 style="font-family:'Montserrat',sans-serif">Our Services</h2>
+          <div class="cards" style="margin-top:20px">
+            <div class="card">
+              <h3>AryaGreen Cloud</h3>
+              <p>Design and operate renewable-energy-powered data centers with AI energy orchestration.</p>
+            </div>
+            <div class="card">
+              <h3>AryaAI Labs</h3>
+              <p>Custom enterprise models, model governance, and explainable AI for regulated industries.</p>
+            </div>
+            <div class="card">
+              <h3>AryaEdge Systems</h3>
+              <p>Edge compute solutions for low-latency needs — telecom, autonomous systems, and smart cities.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sustainability">
+        <div class="container">
+          <h2 style="font-family:'Montserrat',sans-serif">Sustainability & Tech</h2>
+          <p style="color:var(--muted);margin-top:8px">We combine renewable energy (solar, wind, hydrogen) with AI-driven cooling and energy forecasting to minimize emissions and maximize performance.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px">
+            <div class="card">
+              <h3>AI Cooling & Load Balancing</h3>
+              <p>Intelligent control reduces cooling power consumption and reroutes workloads to the most efficient regions.</p>
+            </div>
+            <div class="card">
+              <h3>Energy Marketplace & Carbon Credits</h3>
+              <p>Transparent energy use tracking via immutable ledgers and verified offsets for partners and customers.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container">
+          <h2 style="font-family:'Montserrat',sans-serif">Get in touch</h2>
+          <p style="color:var(--muted)">Interested in partnering or learning more? Send us a message.</p>
+
+          <div style="display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:18px">
+            <form class="contact-form" onsubmit="return false;" aria-label="Contact form">
+              <input id="name" placeholder="Your full name" required>
+              <input id="email" type="email" placeholder="Email address" required>
+              <input id="company" placeholder="Company (optional)">
+              <textarea id="message" placeholder="Tell us about your project" required></textarea>
+              <div style="display:flex;gap:10px;align-items:center">
+                <button class="cta" id="sendBtn">Send Message</button>
+                <div id="formStatus" style="color:var(--muted);font-size:14px"></div>
+              </div>
+            </form>
+
+            <div style="background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01));padding:18px;border-radius:12px">
+              <h3 style="margin-top:0">Contact Info</h3>
+              <p style="color:var(--muted)">Email: hello@aryagroup.example</p>
+              <p style="color:var(--muted)">Headquarters: Bengaluru, India</p>
+              <p style="color:var(--muted)">Follow: LinkedIn / Twitter</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© "Arya Group of Company" — All rights reserved • 2025</div>
+        <div style="color:var(--muted)">Designed with ❤️ for sustainable tech</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Theme toggle
+    const toggle = document.getElementById('themeToggle');
+    toggle.addEventListener('click',()=>{
+      document.body.classList.toggle('dark');
+      toggle.innerText = document.body.classList.contains('dark') ? 'Light Theme' : 'Toggle Theme';
+    });
+
+    // Simple form handler (front-end only)
+    document.getElementById('sendBtn').addEventListener('click', ()=>{
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      const status = document.getElementById('formStatus');
+
+      if(!name || !email || !message){
+        status.textContent = 'Please fill required fields.';
+        return;
+      }
+      status.textContent = 'Message prepared — implement backend to send.';
+      // For now we just show a success interaction
+      status.style.color = 'var(--arya-blue)';
+      setTimeout(()=>{status.textContent='Thanks, we will reach out soon.'},800);
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',function(e){
+        const href = this.getAttribute('href');
+        if(href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
