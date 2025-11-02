@@ -1,362 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Arya Group — Futuristic</title>
-  <meta name="description" content="Arya Group — Futuristic tech company website (single file)." />
-  <style>
-    :root{
-      --bg:#04040a;
-      --card:#0b0b14;
-      --muted:#9aa0b2;
-      --accent:#00fff0; /* neon cyan */
-      --accent-2:#9b6bff; /* neon purple */
-      --glass: rgba(255,255,255,0.04);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-      background: radial-gradient(1200px 600px at 10% 10%, rgba(155,107,255,0.06), transparent),
-                  radial-gradient(900px 500px at 90% 90%, rgba(0,255,240,0.04), transparent),
-                  var(--bg);
-      color:#e6eef8; -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      overflow-x:hidden;
-    }
-
-    /* NAV */
-    .nav{
-      position:fixed;left:0;right:0;top:16px;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;z-index:40;backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;margin:0 24px;box-shadow:0 6px 30px rgba(2,6,23,0.6);
-    }
-    .brand{display:flex;align-items:center;gap:14px}
-    /* logo (SVG) */
-    .logo{width:56px;height:56px;display:inline-grid;place-items:center}
-    .brand h1{font-size:16px;margin:0;font-weight:700;letter-spacing:0.4px}
-    .brand p{margin:0;font-size:12px;color:var(--muted)}
-    .links{display:flex;gap:18px;align-items:center}
-    .links a{color:var(--muted);text-decoration:none;font-size:14px;padding:8px 12px;border-radius:10px}
-    .links a:hover{color:var(--accent);background:linear-gradient(90deg, rgba(0,255,240,0.03), rgba(155,107,255,0.02))}
-    .cta{background:linear-gradient(90deg,var(--accent),var(--accent-2));padding:8px 14px;border-radius:10px;color:#041226;font-weight:700}
-
-    /* HERO */
-    .hero{min-height:82vh;display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:center;padding:110px 6% 60px}
-    .hero-left{max-width:780px}
-    .eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(0,255,240,0.06), rgba(155,107,255,0.04));color:var(--muted);font-size:13px}
-    h2{font-size:48px;line-height:1.02;margin:18px 0 10px;color:white;text-shadow:0 8px 30px rgba(0,255,240,0.06)}
-    p.lead{color:var(--muted);font-size:17px;max-width:66ch}
-
-    .hero-actions{margin-top:22px;display:flex;gap:14px}
-    .btn{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent);font-weight:700;cursor:pointer}
-    .btn.secondary{color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
-
-    /* card on right - glowing glass */
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:16px;padding:18px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(10,10,20,0.6);backdrop-filter:blur(8px)}
-
-    .stats{display:flex;gap:12px;justify-content:space-between;margin-top:12px}
-    .stat{flex:1;padding:10px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);text-align:center}
-    .stat h3{margin:0;color:var(--accent);}
-    .stat p{margin:6px 0 0;color:var(--muted);font-size:13px}
-
-    /* SERVICES */
-    .section{padding:80px 6%;}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .card{background:var(--card);padding:20px;border-radius:14px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 8px 30px rgba(0,0,0,0.5)}
-    .card h4{margin:8px 0}
-    .card p{color:var(--muted);font-size:14px}
-
-    /* TEAM */
-    .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .person{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:16px;border-radius:12px;text-align:center}
-    .avatar{width:84px;height:84px;border-radius:12px;margin:0 auto 12px;background:linear-gradient(180deg, rgba(255,255,255,0.03), transparent);display:grid;place-items:center}
-
-    /* CONTACT */
-    .contact-row{display:grid;grid-template-columns:1fr 420px;gap:24px}
-    form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit}
-    textarea{min-height:130px;resize:vertical}
-    footer{padding:30px 6%;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02)}
-
-    /* responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr; padding-top:80px}
-      .hero-card{order:2}
-      .contact-row{grid-template-columns:1fr}
-      .team-grid{grid-template-columns:repeat(2,1fr)}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .nav{padding:10px 16px;margin:0 12px}
-    }
-    @media (max-width:520px){
-      h2{font-size:32px}
-      .team-grid{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr}
-      .nav{top:10px}
-    }
-
-    /* small neon accent animations */
-    .neon-text{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .glow{filter:drop-shadow(0 6px 28px rgba(0,255,240,0.08))}
-
-    /* subtle floating - used on hero card */
-    @keyframes floaty{0%{transform:translateY(0px)}50%{transform:translateY(-10px)}100%{transform:translateY(0px)}}
-    .float{animation:floaty 6s ease-in-out infinite}
-
-    /* tiny animated underline for nav active */
-    .nav a.active{position:relative}
-    .nav a.active::after{content:'';position:absolute;left:50%;transform:translateX(-50%);bottom:-8px;height:3px;width:28px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 18px rgba(155,107,255,0.08);}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Group of Company - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="brand">
-      <div class="logo" aria-hidden="true">
-        <!-- Minimal abstract geometric SVG logo, transparent background -->
-        <svg viewBox="0 0 120 120" width="56" height="56" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="1">
-              <stop offset="0" stop-color="#00fff0"/>
-              <stop offset="1" stop-color="#9b6bff"/>
-            </linearGradient>
-            <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
-              <feGaussianBlur stdDeviation="6" result="b" />
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <g filter="url(#glow)">
-            <rect x="14" y="14" width="92" height="92" rx="20" stroke="url(#g1)" stroke-width="6" opacity="0.18"/>
-            <path d="M30 86 L60 30 L90 86 Z" stroke="url(#g1)" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="60" cy="52" r="6" fill="#00fff0"/>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <h1 style="font-size:15px;margin-bottom:4px">Arya Group</h1>
-        <p style="margin:0">Futuristic Tech & Innovation</p>
-      </div>
-    </div>
-
-    <div class="links">
-      <div id="navlinks">
-        <a href="#home" class="active">Home</a>
-        <a href="#services">Services</a>
-        <a href="#team">Team</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <button class="cta" onclick="scrollToSection('#contact')">Get in Touch</button>
-    </div>
-  </nav>
-
-  <!-- animated particle canvas (simple) -->
-  <canvas id="c" style="position:fixed;inset:0;z-index:1;pointer-events:none;opacity:0.5"></canvas>
-
-  <main style="position:relative;z-index:2">
-    <section id="home" class="hero">
-      <div class="hero-left">
-        <span class="eyebrow">Product · Consulting · AI</span>
-        <h2 class="glow"><span class="neon-text">Designing the future</span> — engineering strong digital systems for real world impact.</h2>
-        <p class="lead">We build performant web & AI products, secure backend systems, and elegant UX. Our work blends engineering rigor with product-minded design so your idea becomes a scalable reality.</p>
-        <div class="hero-actions">
-          <button class="btn" onclick="scrollToSection('#services')">Our Services</button>
-          <button class="btn secondary" onclick="openDemo()">Live Demo</button>
+    <header>
+        <div class="container">
+            <img src="logo.png" alt="Arya Group of Company Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <div style="margin-top:30px;display:flex;gap:18px;align-items:center">
-          <div style="display:flex;gap:12px;align-items:center">
-            <svg width="38" height="38" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="#00fff0" stroke-opacity="0.12" fill="none" stroke-width="2"/></svg>
-            <div>
-              <div style="font-weight:700;color:white">Trusted by</div>
-              <div style="color:var(--muted);font-size:13px">Startups · Enterprises · Institutes</div>
+    <main>
+        <section class="hero">
+            <h1>Welcome to Arya Group of Company</h1>
+            <p>Innovating Business Solutions for Tomorrow</p>
+            <a href="contact.html" class="btn">Get In Touch</a>
+        </section>
+
+        <section class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Expert Team</h3>
+                    <p>Seasoned professionals dedicated to your success.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Custom Solutions</h3>
+                    <p>Tailored strategies to meet your unique needs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Reliable Support</h3>
+                    <p>24/7 assistance you can count on.</p>
+                </div>
             </div>
-          </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Arya Group of Company. All rights reserved.</p>
         </div>
+    </footer>
 
-      </div>
-
-      <aside class="hero-card float" aria-hidden="true">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <div style="color:var(--muted);font-size:13px">Active Projects</div>
-            <div style="font-weight:800;font-size:22px;margin-top:6px">12</div>
-          </div>
-          <div style="text-align:right">
-            <div style="color:var(--muted);font-size:13px">Team Size</div>
-            <div style="font-weight:800;font-size:22px;margin-top:6px">34</div>
-          </div>
-        </div>
-        <div class="stats">
-          <div class="stat">
-            <h3>99.9%</h3>
-            <p>Uptime & SLA</p>
-          </div>
-          <div class="stat">
-            <h3>1.2s</h3>
-            <p>Avg Response</p>
-          </div>
-          <div class="stat">
-            <h3>24/7</h3>
-            <p>Support</p>
-          </div>
-        </div>
-      </aside>
-    </section>
-
-    <section id="services" class="section">
-      <h3 style="margin:0 0 12px">What we do</h3>
-      <p style="margin:0 0 20px;color:var(--muted)">Full-stack product engineering, AI/ML consulting, and systems architecture to take your idea to production.</p>
-      <div class="grid">
-        <article class="card">
-          <h4>Product Engineering</h4>
-          <p>Design, implement and ship web & mobile products using modern frameworks and best practices for scale.</p>
-        </article>
-        <article class="card">
-          <h4>AI & Data</h4>
-          <p>Machine learning models, MLOps pipelines, data engineering — from prototype to production-ready deployments.</p>
-        </article>
-        <article class="card">
-          <h4>Cloud & Infrastructure</h4>
-          <p>Secure backend systems, container orchestration, monitoring, and cost-optimized cloud architecture.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="team" class="section" style="padding-top:30px">
-      <h3 style="margin-bottom:8px">Our Team</h3>
-      <p style="margin:0 0 20px;color:var(--muted)">Talented engineers, designers and data scientists — small, fast, and experienced.</p>
-      <div class="team-grid">
-        <div class="person card">
-          <div class="avatar"><strong style="font-size:22px;color:var(--accent)">MS</strong></div>
-          <h4 style="margin:6px 0 0">Manoj S. Arya</h4>
-          <p style="margin:6px 0 0;color:var(--muted)">Founder & CTO</p>
-        </div>
-        <div class="person card">
-          <div class="avatar"><strong style="font-size:22px;color:var(--accent)">JK</strong></div>
-          <h4 style="margin:6px 0 0">Jagadeesh K.</h4>
-          <p style="margin:6px 0 0;color:var(--muted)">Design Lead</p>
-        </div>
-        <div class="person card">
-          <div class="avatar"><strong style="font-size:22px;color:var(--accent)">AR</strong></div>
-          <h4 style="margin:6px 0 0">A. Reddy</h4>
-          <p style="margin:6px 0 0;color:var(--muted)">AI Engineer</p>
-        </div>
-        <div class="person card">
-          <div class="avatar"><strong style="font-size:22px;color:var(--accent)">SM</strong></div>
-          <h4 style="margin:6px 0 0">S. Mishra</h4>
-          <p style="margin:6px 0 0;color:var(--muted)">Cloud & DevOps</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section" style="padding-top:20px">
-      <h3 style="margin-bottom:8px">Contact us</h3>
-      <p style="margin:0 0 20px;color:var(--muted)">Tell us about your project — we'll reply within one business day.</p>
-
-      <div class="contact-row">
-        <div class="card">
-          <h4>Drop a message</h4>
-          <form id="contactForm" onsubmit="return submitForm(event)">
-            <input id="name" placeholder="Your name" required />
-            <input id="email" placeholder="Email address" type="email" required />
-            <input id="company" placeholder="Company (optional)" />
-            <textarea id="message" placeholder="Tell us about the project..." required></textarea>
-            <div style="display:flex;gap:12px;align-items:center">
-              <button type="submit" class="btn">Send</button>
-              <div style="color:var(--muted);font-size:13px">Or email: <strong style="color:var(--accent)">hello@arya.group</strong></div>
-            </div>
-            <div id="formMsg" style="color:var(--muted);font-size:13px;margin-top:10px"></div>
-          </form>
-        </div>
-
-        <aside class="card">
-          <h4>Office</h4>
-          <p style="color:var(--muted);margin-top:6px">Bengaluru, India<br/>Open: Mon–Fri 09:30–18:00</p>
-
-          <div style="margin-top:18px">
-            <div style="display:flex;gap:8px;align-items:center"><strong style="width:90px;color:var(--muted);font-size:13px">Phone</strong><span>+91 90000 00000</span></div>
-            <div style="display:flex;gap:8px;align-items:center;margin-top:8px"><strong style="width:90px;color:var(--muted);font-size:13px">Email</strong><span>hello@arya.group</span></div>
-          </div>
-        </aside>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-      <div style="display:flex;gap:14px;align-items:center">
-        <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--accent),var(--accent-2));display:grid;place-items:center;color:#041226;font-weight:800">AG</div>
-        <div>
-          <div style="font-weight:700">Arya Group</div>
-          <div style="font-size:13px;color:var(--muted)">© "+ new Date().getFullYear() + " Arya Group — All rights reserved</div>
-        </div>
-      </div>
-      <div style="color:var(--muted);font-size:13px">Built with passion • Crafted for scale</div>
-    </div>
-  </footer>
-
-  <script>
-    // small helpers
-    function scrollToSection(s){
-      const el = document.querySelector(s);
-      if(!el) return; window.scrollTo({top:el.offsetTop-70,behavior:'smooth'})
-    }
-    function openDemo(){
-      alert('Demo: This is a static template. Replace alert() with your live demo link.');
-    }
-
-    // contact form (fake submit)
-    function submitForm(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value||'friend';
-      const msg=document.getElementById('formMsg');
-      msg.textContent='Thanks '+name+" — we'll get back to you soon!";
-      msg.style.color='var(--accent)';
-      e.target.reset();
-      return false;
-    }
-
-    // nav link active state on scroll
-    const navlinks = document.querySelectorAll('#navlinks a');
-    const sections = Array.from(navlinks).map(a=>document.querySelector(a.getAttribute('href')));
-    function onScroll(){
-      const y = window.scrollY + 120;
-      sections.forEach((sec,i)=>{
-        if(!sec) return;
-        const top = sec.offsetTop; const bottom = top + sec.offsetHeight;
-        if(y>=top && y<bottom){ navlinks.forEach(n=>n.classList.remove('active')); navlinks[i].classList.add('active') }
-      })
-    }
-    window.addEventListener('scroll', onScroll);
-
-    // simple neon particles canvas
-    const canvas = document.getElementById('c');
-    const ctx = canvas.getContext('2d');
-    let W=innerWidth, H=innerHeight; canvas.width=W; canvas.height=H;
-    const particles=[]; const palette=['#00fff0','#9b6bff'];
-    function rand(min,max){return Math.random()*(max-min)+min}
-    function makeParticles(n){for(let i=0;i<n;i++){particles.push({x:rand(0,W),y:rand(0,H),vx:rand(-0.2,0.2),vy:rand(-0.2,0.2),r:rand(0.6,2.8),col:palette[i%palette.length]})}}
-    makeParticles(Math.round((W*H)/15000));
-    function resize(){W=innerWidth;H=innerHeight;canvas.width=W;canvas.height=H}
-    window.addEventListener('resize',()=>{resize();});
-    function step(){
-      ctx.clearRect(0,0,W,H);
-      for(let p of particles){p.x+=p.vx; p.y+=p.vy; if(p.x<0)p.x=W; if(p.x>W)p.x=0; if(p.y<0)p.y=H; if(p.y>H)p.y=0; ctx.beginPath(); const g=ctx.createRadialGradient(p.x,p.y,p.r/2,p.x,p.y,p.r*6); g.addColorStop(0,p.col); g.addColorStop(1,'rgba(0,0,0,0)'); ctx.fillStyle=g; ctx.globalAlpha=0.18; ctx.fillRect(p.x-p.r*3,p.y-p.r*3,p.r*6,p.r*6); ctx.globalAlpha=1; }
-      requestAnimationFrame(step);
-    }
-    step();
-
-    // small DOM readiness tweaks
-    document.addEventListener('DOMContentLoaded',function(){
-      // replace footer year properly
-      const footer = document.querySelector('footer div div div');
-      if(footer) footer.innerHTML = '© ' + new Date().getFullYear() + ' Arya Group — All rights reserved';
-    });
-
-  </script>
-
+    <script src="script.js"></script>
 </body>
 </html>
