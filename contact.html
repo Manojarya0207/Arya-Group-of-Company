@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Arya Group of Company</title>
+  <!-- Load EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    .logo {
+      height: 60px;
+      object-fit: contain;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    nav ul li a {
+      padding: 10px 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #007BFF;
+    }
+    .page-header {
+      text-align: center;
+      padding: 60px 20px;
+      background: #f0f0f0;
+    }
+    .page-header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.2rem;
+      color: #666;
+    }
+    .contact-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 20px;
+      align-items: flex-start;
+    }
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-info h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+    }
+    .contact-info p {
+      margin-bottom: 12px;
+    }
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #007BFF;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #007BFF;
+      box-shadow: 0 0 5px rgba(0,123,255,0.3);
+    }
+    .btn {
+      display: inline-block;
+      background: #007BFF;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+      }
+      nav ul {
+        margin-top: 15px;
+      }
+      .contact-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <!-- Replace "logo.png" with your actual logo file path when deployed -->
+      <img src="logo.png" alt="Arya Group of Company Logo" class="logo" onerror="this.src='https://via.placeholder.com/150x60?text=Arya+Group'">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <h1>Get In Touch</h1>
+      <p>We’d love to hear from you!</p>
+    </section>
+
+    <section class="contact-content">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>Name:</strong> Manoj S Arya</p>
+        <p><strong>Phone:</strong> <a href="tel:7483646528" style="color:#007BFF;">+91 7483646528</a></p>
+        <p><strong>Email:</strong> <a href="mailto:manojarya0207@mail.com" style="color:#007BFF;">manojarya0207@mail.com</a></p>
+      </div>
+
+      <form id="contactForm" class="contact-form">
+        <h2>Send Us a Message</h2>
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Arya Group of Company. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // ✅ REPLACE THE PLACEHOLDERS BELOW WITH YOUR EMAILJS CREDENTIALS
+    const USER_ID = "YOUR_USER_ID";         // e.g., "user_aBcDeFgHiJkLmNoPqRs"
+    const SERVICE_ID = "YOUR_SERVICE_ID";   // e.g., "service_arya_contact"
+    const TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // e.g., "template_contact_form_arya"
+
+    // Initialize EmailJS
+    emailjs.init(USER_ID);
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const subject = document.getElementById('subject').value || 'No Subject';
+      const message = document.getElementById('message').value;
+
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+        to_email: "manojarya0207@mail.com"
+      };
+
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+        .then(function() {
+          alert("✅ Message sent successfully! We'll get back to you soon.");
+          document.getElementById('contactForm').reset();
+        })
+        .catch(function(error) {
+          console.error('FAILED...', error);
+          alert("❌ Failed to send. Please check your internet or try again later.");
+        });
+    });
+  </script>
+</body>
+</html>
